@@ -1,4 +1,4 @@
-package intefaces;
+package interfaces;
 
 public interface PathProject {
     String SERIALIZE_PATH = "src/main/resources/serialize/";
