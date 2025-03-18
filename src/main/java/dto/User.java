@@ -13,6 +13,7 @@ public class User {
 //             ]
     private String email;
     private String name;
+    private String password;
     private String avatar;
     private String phone;
     private String[] roles;
@@ -20,13 +21,22 @@ public class User {
     public User() {
     }
 
-    public User(String email, String name, String avatar,
+    public User(String email, String name, String password, String avatar,
                 String phone, String[] roles) {
         this.email = email;
         this.name = name;
+        this.password = password;
         this.avatar = avatar;
         this.phone = phone;
         this.roles = roles;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
@@ -70,25 +80,26 @@ public class User {
     }
 
     @Override
-    public String toString() {
-        return "User{" +
-                "email='" + email + '\'' +
-                ", name='" + name + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", phone='" + phone + '\'' +
-                ", roles=" + Arrays.toString(roles) +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(email, user.email) && Objects.equals(name, user.name) && Objects.equals(avatar, user.avatar) && Objects.equals(phone, user.phone) && Objects.deepEquals(roles, user.roles);
+        return Objects.equals(email, user.email) && Objects.equals(name, user.name) && Objects.equals(password, user.password) && Objects.equals(avatar, user.avatar) && Objects.equals(phone, user.phone) && Objects.deepEquals(roles, user.roles);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(email, name, avatar, phone, Arrays.hashCode(roles));
+        return Objects.hash(email, name, password, avatar, phone, Arrays.hashCode(roles));
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", phone='" + phone + '\'' +
+                ", roles=" + Arrays.toString(roles) +
+                '}';
     }
 }
