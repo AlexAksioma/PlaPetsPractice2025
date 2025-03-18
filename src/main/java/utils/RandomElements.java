@@ -17,6 +17,7 @@ public class RandomElements {
         String[] roles = {"user"};
         return new User(randomEmail(emailSize),
                 randomName(),
+                "Password123!",
                 "https://www.gravatar.com/avatar/",
                 randomPhone(phoneSize),
                 roles);
